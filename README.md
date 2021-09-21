@@ -1,2 +1,7 @@
 # MyBudgetFrontend
-JavaScript Frontend Application - MyBudget
+
+## License & Copyright
+
+© Ethan Gustafson
+
+Licensed under the [MIT LICENSE](LICENSE).
