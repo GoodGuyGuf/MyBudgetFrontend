@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -10,6 +11,7 @@ module.exports = {
   mode: 'none',
   devServer: {
     port: 8000,
+    historyApiFallback: true,
     static: {
       directory: path.resolve(__dirname, './dist')
     },
@@ -32,7 +34,18 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader'
+        ]
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles.css'
+    })
+  ]
 };
